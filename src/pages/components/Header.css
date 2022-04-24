@@ -1,0 +1,55 @@
+header {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+header div {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin: 0 10px;
+}
+
+header p {
+  font-weight: 500;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.curr-icon {
+  font-size: larger;
+}
+
+header select {
+  background-color: black;
+  border: 1px black solid;
+  border-radius: 5px;
+  color: whitesmoke;
+  font-family: Sora, sans-serif;
+  padding: 10px;
+}
+
+header select:hover {
+  border: 1px whitesmoke solid;
+  cursor: pointer;
+}
+
+.logout {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.logout-icon {
+  color: whitesmoke;
+  font-size: large;
+}
+
+.logout-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}

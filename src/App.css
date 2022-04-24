@@ -1,0 +1,23 @@
+body {
+  background-color: #383e49;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  font-family: Sora, sans-serif;
+  justify-content: space-between;
+  text-align: center;
+}
+
+footer {
+  background-color: black;
+  bottom: 0;
+  font-weight: 500;
+  padding: 20px 0;
+  position: absolute;
+  width: 100%;
+}
+
+.sm-icons {
+  filter: brightness(1000%);
+  font-size: large;
+}

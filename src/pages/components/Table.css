@@ -1,0 +1,48 @@
+table {
+  width: 100%;
+}
+
+thead , th {
+  background-color: #363b46;
+  padding: 20px 0;
+}
+
+tr , td {
+  padding: 20px 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+td button {
+  border: none;
+  border-radius: 5px;
+  font-family: Sora, sans-serif;
+  padding: 10px;
+  width: 45%;
+}
+
+.edit-btn {
+  background-color: rgb(7, 14, 22);
+  color: whitesmoke;
+  font-weight: 500;
+}
+
+.delete-btn {
+  background-color: rgb(77, 3, 3);
+  color: whitesmoke;
+  font-weight: 500;
+}
+
+.edit-btn:hover {
+  background-color: rgb(20, 42, 65);
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: rgb(112, 6, 6);
+  cursor: pointer;
+}
