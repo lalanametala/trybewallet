@@ -47,21 +47,68 @@ td button {
   cursor: pointer;
 }
 
+table h3 {
+  display: none;
+}
+
 @media only screen and ( max-width : 600px ) {
 
   table {
-    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid white;
+    font-size: 0.8rem;
+    justify-self: center;
+    margin: 10px 0;
+    padding: 0 20px;
+    width: 90%;
   }
 
-  td , th {
-    display: block;
+  table h3 {
+    display: flex;
+    font-size: 0.9rem;
+    justify-content: center;
+    padding: 20px 0;
   }
 
-  td[ data-th ]:before {
+  tbody {
+    border-top: 1px solid white;
+  }
+
+  tr {
+    padding: 10px;
+  }
+
+  td {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  td:before {
     content: attr(data-th);
+    font-weight: 700;
+    text-align: left;
+    width: 50%;
   }
 
-  thead th:not( :first-child ) {
+  th:before {
+    content: 'Despesa';
+  }
+
+  thead {
     display: none;
+  }
+
+  .buttons {
+    justify-content: space-between;
+  }
+
+  .buttons:before {
+    content: none;
+  }
+
+  .buttons button {
+    width: 49%;
   }
 }

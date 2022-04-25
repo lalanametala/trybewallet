@@ -22,6 +22,7 @@ class Table extends React.Component {
 
     return (
       <table>
+        <h3>Despesas</h3>
         <thead>
           {tableLabels.map((label) => (
             <th name={ label } key={ label }>{label}</th>
@@ -89,7 +90,7 @@ class Table extends React.Component {
                     : exp.exchangeRates[exp.currency].name.split('/')[0]
                 }
               </td>
-              <td className="buttons" data-th={ tableLabels[8] }>
+              <td className="buttons">
                 <button
                   type="button"
                   data-testid="edit-btn"

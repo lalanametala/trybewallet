@@ -26,12 +26,21 @@ footer {
 @media only screen and ( max-width : 600px ) {
 
   body {
+    align-items: center;
+    justify-content: center;
     width: 90vw;
   }
 
   footer {
     font-size: 0.7rem;
     position: sticky;
+    width: 100%;
+  }
+
+  .root {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     width: 100%;
   }
 }
