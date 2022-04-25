@@ -75,7 +75,7 @@ header select:hover {
     display: flex;
     flex-direction: column;
     font-size: 0.9rem;
-    gap: 5px;
+    gap: 0;
     width: 50%;
   }
 
