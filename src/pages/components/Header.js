@@ -39,7 +39,7 @@ class Header extends React.Component {
           <h3>TrybeWallet</h3>
         </div>
         <div className="header-info">
-          <p data-testid="email-field">
+          <p data-testid="email-field" className="user-info">
             <AiOutlineUser className="user-icon" />
             {email}
           </p>

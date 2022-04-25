@@ -30,24 +30,26 @@ class Table extends React.Component {
         {expenses.map((exp, index) => (
           <tbody key={ index }>
             <tr>
-              <td>{exp.description}</td>
-              <td>{exp.tag}</td>
-              <td>{exp.method}</td>
-              <td>
+              <td data-th={ tableLabels[0] }>
+                {exp.description}
+              </td>
+              <td data-th={ tableLabels[1] }>{exp.tag}</td>
+              <td data-th={ tableLabels[2] }>{exp.method}</td>
+              <td data-th={ tableLabels[3] }>
                 {`${currencySymbols[exp.currency]}${Number(exp.value)
                   .toLocaleString('pt-BR', {
                     maximumFractionDigits: 2,
                     minimumFractionDigits: 2 })}`}
 
               </td>
-              <td>
+              <td data-th={ tableLabels[4] }>
                 {
                   headerCurrency === 'BRL'
                     ? 'Real'
                     : exp.exchangeRates[headerCurrency].name.split('/')[0]
                 }
               </td>
-              <td>
+              <td data-th={ tableLabels[5] }>
                 {currencySymbols[headerCurrency]}
                 {
                   headerCurrency === 'BRL'
@@ -63,7 +65,7 @@ class Table extends React.Component {
                         minimumFractionDigits: 2 })
                 }
               </td>
-              <td>
+              <td data-th={ tableLabels[6] }>
                 {currencySymbols[headerCurrency]}
                 {
                   headerCurrency === 'BRL'
@@ -80,14 +82,14 @@ class Table extends React.Component {
                         minimumFractionDigits: 2 })
                 }
               </td>
-              <td>
+              <td data-th={ tableLabels[7] }>
                 {
                   exp.currency === 'BRL'
                     ? 'Real'
                     : exp.exchangeRates[exp.currency].name.split('/')[0]
                 }
               </td>
-              <td className="buttons">
+              <td className="buttons" data-th={ tableLabels[8] }>
                 <button
                   type="button"
                   data-testid="edit-btn"
