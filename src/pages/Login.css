@@ -58,3 +58,17 @@
   color: whitesmoke;
   cursor: pointer;
 }
+
+@media only screen and ( max-width : 600px ) {
+
+  .login-box {
+    padding: 10px 30px;
+    width: 50%;
+  }
+
+  .login-form button:enabled {
+    background-color: green;
+    color: whitesmoke;
+    cursor: pointer;
+  }
+}
