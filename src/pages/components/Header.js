@@ -43,13 +43,15 @@ class Header extends React.Component {
             <AiOutlineUser className="user-icon" />
             {email}
           </p>
-          <p>
+          <p className="total-field">
             <FaCoins />
             {'  '}
-            {currencySymbols[headerCurrency]}
-            <span data-testid="total-field">{totalExp}</span>
+            <p>
+              {currencySymbols[headerCurrency]}
+              <span data-testid="total-field">{totalExp}</span>
+            </p>
           </p>
-          <div>
+          <div className="currency-choice">
             <RiMoneyDollarCircleLine className="curr-icon" />
             <select
               data-testid="header-currency-field"

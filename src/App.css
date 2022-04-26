@@ -32,6 +32,7 @@ footer {
   }
 
   footer {
+    bottom: 0;
     font-size: 0.7rem;
     position: sticky;
     width: 100%;

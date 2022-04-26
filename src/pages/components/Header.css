@@ -21,6 +21,15 @@ header p {
   padding: 10px;
 }
 
+.total-field {
+  align-items: center;
+  display: flex;
+}
+
+.total-field p {
+  margin: 0;
+}
+
 .curr-icon {
   font-size: larger;
 }
@@ -80,11 +89,36 @@ header select:hover {
   }
 
   .header-info p , .header-info div {
+    margin-bottom: 0;
     padding: 0;
   }
 
   .user-info {
     display: flex;
+    margin-right: 30px;
+    margin-top: 20px;
     padding: 0;
+  }
+
+  .total-field {
+    align-items: flex-start;
+    gap: 5px;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .currency-choice {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .currency-choice select {
+    width: 70%;
+  }
+
+  .logout {
+    position: absolute;
+    top: 18px;
   }
 }
