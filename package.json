@@ -1,6 +1,7 @@
 {
   "name": "sd-0x-project-trybewallet",
   "version": "0.1.0",
+  "homepage": "https://lalanametala.github.io/trybewallet/",
   "private": true,
   "engines": {
     "node": "16"
@@ -23,6 +24,8 @@
     "stylelint-order": "4.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -56,6 +59,7 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-plugin-react-redux": "3.3.0",
     "eslint-plugin-sonarjs": "0.5.0",
+    "gh-pages": "^3.2.3",
     "jest-localstorage-mock": "2.4.3",
     "stylelint": "13.8.0",
     "stylelint-config-standard": "20.0.0"
