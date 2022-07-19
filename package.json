@@ -1,7 +1,7 @@
 {
   "name": "sd-0x-project-trybewallet",
   "version": "0.1.0",
-  "homepage": "https://lalanametala.github.io/trybewallet/",
+  "homepage": ".",
   "private": true,
   "engines": {
     "node": "16.x",

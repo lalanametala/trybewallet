@@ -9,6 +9,7 @@ class Footer extends React.Component {
         <div className="icons">
           <a
             href="https://github.com/lalanametala"
+            // eslint-disable-next-line
             target="_blank"
             rel="noreferrer"
           >
@@ -16,6 +17,7 @@ class Footer extends React.Component {
           </a>
           <a
             href="https://www.linkedin.com/in/la%C3%ADs-nametala/"
+            // eslint-disable-next-line
             target="_blank"
             rel="noreferrer"
           >
