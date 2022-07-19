@@ -43,7 +43,7 @@
   width: 90%;
 }
 
-.login-form button {
+.login-form button:disabled {
   background-color: rgb(151, 146, 146);
   border: none;
   border-radius: 5px;
