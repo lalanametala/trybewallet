@@ -44,6 +44,16 @@
 }
 
 .login-form button {
+  background-color: rgb(151, 146, 146);
+  border: none;
+  border-radius: 5px;
+  font-family: Sora, sans-serif;
+  font-weight: 500;
+  padding: 10px;
+  width: 97%;
+}
+
+.login-form button:enabled {
   background-color: green;
   border: none;
   border-radius: 5px;
