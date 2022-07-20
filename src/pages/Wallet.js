@@ -71,7 +71,7 @@ class Wallet extends React.Component {
         const {
           value, exchangeRates, currency,
         } = expense;
-        return acc + (+value * +exchangeRates[currency].ask);
+        return acc + (+value * +exchangeRates[currency]?.ask);
       }, 0);
 
     if (headerCurrency !== 'BRL' && expenses.length) {
