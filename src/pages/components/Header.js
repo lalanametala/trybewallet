@@ -83,6 +83,7 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => ({
   headerCurrency: state.wallet.headerCurrency,
+  totalExp: state.wallet.totalExp,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -91,7 +92,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 Header.propTypes = {
   email: PropTypes.string,
-  totalExp: PropTypes.number,
+  totalExp: PropTypes.string,
   changeCurr: PropTypes.func,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,

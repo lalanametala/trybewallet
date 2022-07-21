@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   currencies: [],
   expenses: [],
   headerCurrency: 'BRL',
+  totalExp: '0,00',
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -43,6 +44,11 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       headerCurrency: action.headerCurrency,
+    };
+  case 'SAVE_TOTAL':
+    return {
+      ...state,
+      totalExp: action.totalExp,
     };
   default:
     return state;

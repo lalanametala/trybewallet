@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeExpenses, fetchCurrencies, fetchExchangeRates } from '../actions';
+import {
+  changeExpenses, fetchCurrencies, fetchExchangeRates, saveTotal,
+} from '../actions';
 import ExpensesForm from './components/ExpensesForm';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -32,12 +34,12 @@ class Wallet extends React.Component {
     } else this.setState({ btnDisabled: true });
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
     const { sendExpense, expenses, editExpenses } = this.props;
     const { btnLabel, editId, value, description, currency, method, tag } = this.state;
     if (btnLabel === 'Adicionar despesa') {
-      sendExpense({
+      await sendExpense({
         value,
         description,
         currency,
@@ -59,38 +61,42 @@ class Wallet extends React.Component {
         }
         return exp;
       });
-      editExpenses(newExpenses);
+      await editExpenses(newExpenses);
     }
     this.setState(INITIAL_STATE);
+    this.calculateTotal();
   }
 
   calculateTotal = () => {
-    const { expenses, headerCurrency } = this.props;
+    const { expenses, headerCurrency, saveTotalExp } = this.props;
     const brlTotal = expenses
       .reduce((acc, expense) => {
         const {
           value, exchangeRates, currency,
         } = expense;
-        return acc + (+value * +exchangeRates[currency]?.ask);
+        if (currency === 'BRL') return +value;
+        return acc + (+value * +exchangeRates[currency].ask);
       }, 0);
 
     if (headerCurrency !== 'BRL' && expenses.length) {
       const rates = expenses[0].exchangeRates;
-      return (+brlTotal / +rates[headerCurrency].ask)
+      saveTotalExp((+brlTotal / +rates[headerCurrency].ask)
         .toLocaleString('pt-BR', {
           maximumFractionDigits: 2,
-          minimumFractionDigits: 2 });
+          minimumFractionDigits: 2 }));
+    } else {
+      saveTotalExp(brlTotal.toLocaleString('pt-BR', {
+        maximumFractionDigits: 2,
+        minimumFractionDigits: 2 }));
     }
-    return brlTotal.toLocaleString('pt-BR', {
-      maximumFractionDigits: 2,
-      minimumFractionDigits: 2 });
   }
 
-  handleDelete = ({ target: { id } }) => {
+  handleDelete = async ({ target: { id } }) => {
     const { expenses, editExpenses } = this.props;
     const newExpenses = expenses
       .filter((exp) => exp.id !== +id);
-    editExpenses(newExpenses);
+    await editExpenses(newExpenses);
+    this.calculateTotal();
     this.setState(INITIAL_STATE);
   }
 
@@ -116,7 +122,8 @@ class Wallet extends React.Component {
       <>
         <Header
           email={ email }
-          totalExp={ this.calculateTotal() }
+          // ALTERAR ISSO URGENTE!!! SALVAR TOTAL NA STORE!!!!!!
+          // totalExp={ this.calculateTotal() }
           currencies={ currencies }
           history={ history }
         />
@@ -149,6 +156,7 @@ const mapDispatchToProps = (dispatch) => ({
   getCurrencies: () => dispatch(fetchCurrencies()),
   sendExpense: (expense) => dispatch(fetchExchangeRates(expense)),
   editExpenses: (expenses) => dispatch(changeExpenses(expenses)),
+  saveTotalExp: (totalExp) => dispatch(saveTotal(totalExp)),
 });
 
 Wallet.propTypes = {
@@ -158,6 +166,7 @@ Wallet.propTypes = {
   getCurrencies: PropTypes.func,
   sendExpense: PropTypes.func,
   editExpenses: PropTypes.func,
+  saveTotalExp: PropTypes.func,
   headerCurrency: PropTypes.string,
 }.isRequired;
 

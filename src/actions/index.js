@@ -37,6 +37,11 @@ export const changeHeaderCurr = (headerCurrency) => ({
   headerCurrency,
 });
 
+export const saveTotal = (totalExp) => ({
+  type: 'SAVE_TOTAL',
+  totalExp,
+});
+
 // Thunk Functions
 
 export function fetchCurrencies() {
